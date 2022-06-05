@@ -113,7 +113,6 @@ defineEmits([
         }
         .content{
             margin-left: 65px; 
-            
         }  
         .mailSideBar-newMessageModalButton{
             --bar-width: 60px;

@@ -34,7 +34,6 @@ const logout = () => {
   <div >
     <div class="app-bar-full">
       <div class="app-bar-left">
-        <button class="app-bar-button"  ><va-icon name="menu"></va-icon></button>
         <button class="app-bar-button"  :class="{'app-bar-button-selected':mainPage()}"  @click="Inertia.visit(route('MyMessages'), { method: 'get' })" ><va-icon name="home"></va-icon></button>
       </div>
       <div class="app-bar-right">
