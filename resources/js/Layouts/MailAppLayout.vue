@@ -61,12 +61,14 @@ const logout = () => {
     border-color: black;
     background-color: transparent;
     height: 100%;
+    margin-left: 5px;
   }
   .app-bar-right{
     float:right;
     border-color: black;
     background-color: transparent;
     height: 100%;
+    margin-right: 5px;
   }
   .app-bar-button{
     width: 30px;
@@ -76,7 +78,7 @@ const logout = () => {
     background-color: rgb(2, 105, 164);
     color: white;
     border-radius: 15px;
-
+    
   }
   .app-bar-button-selected, .app-bar-button:hover{
     background-color: rgb(3, 138, 216)/*rgb(0, 180, 171)*/;
