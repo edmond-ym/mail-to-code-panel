@@ -76,10 +76,11 @@ const logout = () => {
     /*background-color: rgb(2, 105, 164);*/
     background-color: rgb(2, 105, 164);
     color: white;
+    border-radius: 15px;
 
   }
   .app-bar-button-selected, .app-bar-button:hover{
-    background-color: rgb(0, 180, 171);
+    background-color: rgb(3, 138, 216)/*rgb(0, 180, 171)*/;
   }
 </style>
 <script>
