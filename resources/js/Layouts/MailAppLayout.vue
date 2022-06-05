@@ -54,7 +54,7 @@ const logout = () => {
     background-color: rgb(2, 105, 164);
     width: 100%;
     height: 40px;
-    /*position: fixed;*/
+    position: fixed;
   }
   .app-bar-left{
     float:left;
