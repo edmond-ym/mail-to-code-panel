@@ -40,7 +40,7 @@ defineEmits([
         height: 100%;
         /*overflow: scroll;*/
         background-color: var(--background-color);
-        overflow: hidden ;
+        overflow: scroll ;
         /*margin-top: 6px;*/
         top: 40px;
 
@@ -48,7 +48,7 @@ defineEmits([
     }       
     .mailSideBar-buttonPart{
        margin-top: 50px;
-       
+       overflow: scroll ;
 
     }
     .mailSideBar-newMessageModalButton{
@@ -82,6 +82,12 @@ defineEmits([
         color: white;
         width:  100%;
         text-align: left;
+    }
+    .mailSideBar-button{
+        height: 50px;
+    }
+    .mailSideBar-space{
+        height: 30px;
     }
     .mailSideBar-button-text{
         margin-left: 5px;
@@ -181,7 +187,11 @@ defineEmits([
                 
                 <div  class="mailSideBar-space"> </div>
                 <button @click="Inertia.visit(route('ContactList'))"        :class="{ active: route().current('ContactList') }"         class="mailSideBar-button"><va-icon name="contacts" />  <span class="mailSideBar-button-text">Contact    </span>   </button>
+                
                 <button @click="Inertia.visit(route('PrivateCodeManager'))" :class="{ active: route().current('PrivateCodeManager') }"  class="mailSideBar-button"><va-icon name="vpn_key" />   <span class="mailSideBar-button-text">Private Key</span>   </button>
+                <div  class="mailSideBar-space"> </div>
+                <div  class="mailSideBar-space"> </div>
+                <div  class="mailSideBar-space"> </div>
 
 
             </div>
