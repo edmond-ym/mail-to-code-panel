@@ -43,8 +43,10 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     
                 </div>
-                
-                <nav>
+                <Button @click="showNewPrivateCodeModal = !showNewPrivateCodeModal" style="position: static;">
+                  New
+                </Button>
+                <nav style="position: static;">
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-active-tab" data-bs-toggle="tab" data-bs-target="#nav-active" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Active</button>
                     <button class="nav-link" id="nav-trashed-tab" data-bs-toggle="tab" data-bs-target="#nav-trashed" type="button" role="tab" aria-controls="nav-trashed" aria-selected="false">Trashed</button>
@@ -53,14 +55,10 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                 <div class="tab-content" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab" tabindex="0">
                     
-                    <Button @click="showNewPrivateCodeModal = !showNewPrivateCodeModal">
-                      New
-                    </Button>
-                    
                     <EmptyListAlert :show="privateCodeList.length==0">
                       No Mail Code
                     </EmptyListAlert>
-                    <div style=" overflow: auto;">
+                    <div style=" overflow: scroll;">
                       <div v-for="(item, index) in privateCodeList" :key="index">
                         <PrivateCodeCard
                           :mailCode="publicCode+'-'+item.secret_code"

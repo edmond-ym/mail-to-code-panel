@@ -33,7 +33,7 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
     
     
                     </div>
-                    <Button @click="showNewContactModal = !showNewContactModal" :rounded="false" class="mr-4">
+                    <Button @click="showNewContactModal = !showNewContactModal" :rounded="false" class="mr-4" style="position: static;">
                       New
                     </Button>
                      
