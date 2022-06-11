@@ -17,7 +17,7 @@ class HttpsRedirect
      */
     public function handle(Request $request, Closure $next)
     {
-        echo $request->getScheme();
+        echo $request->isSecure();
         if (App::environment('production')) {
             if ($request->getScheme()=='http') {
                 //echo "sssss";
