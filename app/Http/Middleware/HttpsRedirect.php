@@ -19,7 +19,6 @@ class HttpsRedirect
     {
         if (App::environment('production')) {
             if ($request->getScheme()=='http') {
-                //echo Request::HEADER_X_FORWARDED_PROTO;
                 return redirect()->secure($request->getRequestUri());
             }
         }
