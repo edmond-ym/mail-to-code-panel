@@ -12,7 +12,8 @@ class PrivateCode extends Model
     use SoftDeletes;
 
     protected $table = 'private_code';
-    //protected $primaryKey = 'secret_code';
+    protected $primaryKey = 'secret_code';
+    public $incrementing = false;
     protected $fillable=['secret_code', 'user_id', 'nickname'];
     protected $casts=[
         'created_at' => 'datetime:Y-m-d H:i:s',
