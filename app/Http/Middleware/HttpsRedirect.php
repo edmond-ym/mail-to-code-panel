@@ -17,13 +17,12 @@ class HttpsRedirect
      */
     public function handle(Request $request, Closure $next)
     {
-        echo $request->isSecure();
-        if (App::environment('production')) {
+        /*if (App::environment('production')) {
             if ($request->getScheme()=='http') {
                 //echo "sssss";
                 //return redirect()->secure($request->getRequestUri());
             }
-        }
+        }*/
         return $next($request);
     }
 }
