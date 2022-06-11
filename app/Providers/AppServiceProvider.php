@@ -29,9 +29,10 @@ class AppServiceProvider extends ServiceProvider
         $request=new Request ;
         if (App::environment('production')) {
             URL::forceScheme('https');
+            if (!$request->secure()) {
+                return redirect()->secure($request->getRequestUri());
+            }
         }
-        if ($request->secure()) {
-            return redirect()->secure($request->getRequestUri());
-        }
+        
     }
 }
