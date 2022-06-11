@@ -4,7 +4,7 @@ import Welcome from '@/Jetstream/Welcome.vue';
 </script>
 
 <template>
-    {{route('MyMessages')}}
+
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
