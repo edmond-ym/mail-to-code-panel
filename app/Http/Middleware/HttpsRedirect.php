@@ -21,7 +21,7 @@ class HttpsRedirect
         if (App::environment('production')) {
             if ($request->getScheme()=='http') {
                 echo "sssss";
-                return redirect()->secure($request->getRequestUri());
+                //return redirect()->secure($request->getRequestUri());
             }
         }
         return $next($request);
