@@ -17,10 +17,10 @@ class HttpsRedirect
      */
     public function handle(Request $request, Closure $next)
     {
-
+        echo $request->getScheme();
         if (App::environment('production')) {
             if ($request->getScheme()=='http') {
-                echo "sssss";
+                //echo "sssss";
                 //return redirect()->secure($request->getRequestUri());
             }
         }
