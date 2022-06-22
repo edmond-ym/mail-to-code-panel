@@ -6,6 +6,7 @@ import JetButton from '@/Jetstream/Button.vue';
 import JetInput from '@/Jetstream/Input.vue';
 import JetLabel from '@/Jetstream/Label.vue';
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
+//import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
 
 defineProps({
     status: String,
@@ -13,8 +14,11 @@ defineProps({
 
 const form = useForm({
     email: '',
+    //CaptchaResponse: '',
 });
-
+/*const onVerify=(token, eKey) => {
+    form.CaptchaResponse=token
+};*/
 const submit = () => {
     form.post(route('password.email'));
 };
@@ -50,7 +54,12 @@ const submit = () => {
                     autofocus
                 />
             </div>
-
+            <!--<div class="flex items-center justify-end mt-4">
+                <vue-hcaptcha 
+                    :sitekey="CaptchaSiteKey"
+                    @verify="onVerify">
+                </vue-hcaptcha>
+            </div>-->
             <div class="flex items-center justify-end mt-4">
                 <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Email Password Reset Link
@@ -59,3 +68,14 @@ const submit = () => {
         </form>
     </JetAuthenticationCard>
 </template>
+<script>
+import { usePage } from '@inertiajs/inertia-vue3'
+
+export default{
+    data() {
+        return {
+            CaptchaSiteKey: usePage().props.value.CaptchaSiteKey
+        }
+    }
+}
+</script>
