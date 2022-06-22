@@ -7,6 +7,7 @@ import JetInput from '@/Jetstream/Input.vue';
 import JetCheckbox from '@/Jetstream/Checkbox.vue';
 import JetLabel from '@/Jetstream/Label.vue';
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
 
 const form = useForm({
     name: '',
@@ -14,13 +15,18 @@ const form = useForm({
     password: '',
     password_confirmation: '',
     terms: false,
+    CaptchaResponse: '',
 });
-
+const onVerify=(token, eKey) => {
+    form.CaptchaResponse=token
+};
 const submit = () => {
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
+
+
 </script>
 
 <template>
@@ -93,7 +99,12 @@ const submit = () => {
                     </div>
                 </JetLabel>
             </div>
-
+            <div class="flex items-center justify-end mt-4">
+                <vue-hcaptcha 
+                    :sitekey="CaptchaSiteKey"
+                    @verify="onVerify">
+                </vue-hcaptcha>
+            </div>
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Already registered?
@@ -103,6 +114,19 @@ const submit = () => {
                     Register
                 </JetButton>
             </div>
+           
         </form>
     </JetAuthenticationCard>
 </template>
+
+<script>
+import { usePage } from '@inertiajs/inertia-vue3'
+
+export default{
+    data() {
+        return {
+            CaptchaSiteKey: usePage().props.value.CaptchaSiteKey
+        }
+    }
+}
+</script>

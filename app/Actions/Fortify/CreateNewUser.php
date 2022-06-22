@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Library\Services\MailCodeService;
+use App\Rules\CheckCaptchaResponse;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -26,8 +27,9 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            'CaptchaResponse'=> new CheckCaptchaResponse,
         ])->validate();
-        
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
