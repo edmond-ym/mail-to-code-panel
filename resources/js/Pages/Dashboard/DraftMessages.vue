@@ -18,6 +18,8 @@ import MailSideBar from '../../Module/MailSideBar.vue'
 import FullScreenModal from '../../Element/FullScreenModal.vue'
 import DraftList from '../../Module/DraftList.vue'
 import EmptyListAlert from '../../Component/EmptyListAlert.vue'
+import SearchBar from '../../Component/SearchBar.vue'
+
 </script>
 
 <template>
@@ -45,6 +47,10 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                       
                   </div>
+                  <SearchBar
+                    v-model:searchField="searchKeyword"
+                    @search-update="(keyword)=>{Inertia.visit(route('DraftMessages',{search_keyword: keyword}))}"
+                  ></SearchBar>
                   <EmptyListAlert :show="draftMessageList.length==0">
                     No Draft Messages
                   </EmptyListAlert>
@@ -111,6 +117,7 @@ export default {
     publicCode: String,
     draftMessageList: Array,
     message: Object,
+    searchKeyword: String,
   },
   data() {
     return {

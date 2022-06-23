@@ -54,30 +54,33 @@ Route::middleware([
     })->name('PrivateCodeManager');
    
 
-    Route::get('/my-messages', function () {
+    Route::get('/my-messages/{search_keyword?}', function ($search_keyword=null) {
         return Inertia::render('Dashboard/MyMessages', [
-            'messageList'=>MyMessage::where('receiver_public_code', '=',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
+            'messageList'=>MyMessage::search($search_keyword)->where('receiver_public_code',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
             'publicCode'=>MailCodeService::fetchPublicCode(Auth::id()),
-
+            'searchKeyword'=>$search_keyword,
         ]);
     })->name('MyMessages');
-    Route::get('/sent-messages', function () {
+    Route::get('/sent-messages/{search_keyword?}', function ($search_keyword=null) {
         return Inertia::render('Dashboard/SentMessages', [
-            'sentMessages'=>SentMessage::where('sender_public_code', '=',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
+            'sentMessages'=>SentMessage::search($search_keyword)->where('sender_public_code',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
             'publicCode'=>MailCodeService::fetchPublicCode(Auth::id()),
+            'searchKeyword'=>$search_keyword,
         ]);
     })->name('SentMessages');
-    Route::get('/draft-messages', function () {
+    Route::get('/draft-messages/{search_keyword?}', function ($search_keyword=null) {
         return Inertia::render('Dashboard/DraftMessages', [
-            'draftMessageList'=>DraftMessage::where('sender_public_code', '=',MailCodeService::fetchPublicCode(Auth::id()))->get(),
+            'draftMessageList'=>DraftMessage::search($search_keyword)->where('sender_public_code',MailCodeService::fetchPublicCode(Auth::id()))->get(),
             'publicCode'=>MailCodeService::fetchPublicCode(Auth::id()),
+            'searchKeyword'=>$search_keyword,
         ]);
     })->name('DraftMessages');
-    Route::get('/trashed-messages', function () {
+    Route::get('/trashed-messages/{search_keyword?}', function ($search_keyword=null) {
         return Inertia::render('Dashboard/TrashedMessages', [
-            'trashedReceivedMessageList'=>MyMessage::onlyTrashed()->where('receiver_public_code', '=',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
-            'trashedSentMessageList'=>SentMessage::onlyTrashed()->where('sender_public_code', '=',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
+            'trashedReceivedMessageList'=>MyMessage::search($search_keyword)->onlyTrashed()->where('receiver_public_code',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
+            'trashedSentMessageList'=>SentMessage::search($search_keyword)->onlyTrashed()->where('sender_public_code',MailCodeService::fetchPublicCode(Auth::id()) )->get(), 
             'publicCode'=>MailCodeService::fetchPublicCode(Auth::id()),
+            'searchKeyword'=>$search_keyword,
         ]);
     })->name('TrashedMessages');
     /*Route::get('/my-messages/{msg_id}', function ($msg_id) {

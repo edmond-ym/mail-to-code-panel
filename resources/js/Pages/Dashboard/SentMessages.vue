@@ -18,6 +18,7 @@ import MailSideBar from '../../Module/MailSideBar.vue'
 import FullScreenModal from '../../Element/FullScreenModal.vue'
 import SentMessageList from '../../Module/SentMessageList.vue'
 import EmptyListAlert from '../../Component/EmptyListAlert.vue'
+import SearchBar from '../../Component/SearchBar.vue'
 
 </script>
 
@@ -47,7 +48,10 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                       
                   </div>
-                  
+                  <SearchBar
+                    v-model:searchField="searchKeyword"
+                    @search-update="(keyword)=>{Inertia.visit(route('SentMessages',{search_keyword: keyword}))}"
+                  ></SearchBar>
                  
                   
                     <!--<SentMessageTable v-model:tableData="sentMessages" :extraFields="['']" >
@@ -111,6 +115,8 @@ export default {
     publicCode: String,
     sentMessages: Array,
     message: Object,
+    searchKeyword: String,
+
   },
   data() {
     return {

@@ -21,6 +21,8 @@ import FullScreenModal from '../../Element/FullScreenModal.vue'
 import ReceivedMessageList from '../../Module/ReceivedMessageList.vue'
 import SentMessageList from '../../Module/SentMessageList.vue'
 import EmptyListAlert from '../../Component/EmptyListAlert.vue'
+import SearchBar from '../../Component/SearchBar.vue'
+
 </script>
 
 <template>
@@ -49,7 +51,10 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                       
                   </div>
-                  
+                  <SearchBar
+                    v-model:searchField="searchKeyword"
+                    @search-update="(keyword)=>{Inertia.visit(route('TrashedMessages',{search_keyword: keyword}))}"
+                  ></SearchBar>
                   
                   
                  
@@ -124,7 +129,8 @@ export default {
   props: {
     errors: Object,
     publicCode: String,
-    
+    searchKeyword: String,
+
     trashedMessageList: Array,
     trashedReceivedMessageList: Array,
     trashedSentMessageList: Array,

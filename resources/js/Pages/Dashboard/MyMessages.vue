@@ -19,6 +19,7 @@ import FullScreenModal from '../../Element/FullScreenModal.vue'
 
 import ReceivedMessageList from '../../Module/ReceivedMessageList.vue'
 import EmptyListAlert from '../../Component/EmptyListAlert.vue'
+import SearchBar from '../../Component/SearchBar.vue'
 </script>
 
 <template>
@@ -43,6 +44,11 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                       
                   </div>
+
+                  <SearchBar
+                    v-model:searchField="searchKeyword"
+                    @search-update="(keyword)=>{Inertia.visit(route('MyMessages',{search_keyword: keyword}))}"
+                  ></SearchBar>
                   <!--<ReceivedMessageTable v-model:tableData="messageList" :extraFields="['']">
                     <template #tableExtraField="tableExtraField" >
                       <td>
@@ -96,6 +102,7 @@ export default {
     publicCode: String,
     messageList: Array,
     message: Object,
+    searchKeyword: String,
   },
   data() {
     return {
