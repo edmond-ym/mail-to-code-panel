@@ -11,7 +11,9 @@
         "laravel/framework": "^9.11",
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.14.1",
+        "laravel/scout": "^9.4",
         "laravel/tinker": "^2.7",
+        "nyholm/psr7": "^1.0",
         "symfony/http-client": "^6.1",
         "symfony/mailgun-mailer": "^6.1",
         "tightenco/ziggy": "^1.0"
