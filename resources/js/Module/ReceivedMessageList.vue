@@ -34,7 +34,7 @@ defineEmits(['viewMessage']);
 
       <MailListItem 
         @background-click="$emit('viewMessage', item.id)"
-        :contact="item.receiver_public_code+'-'+item.receiver_private_code"
+        :contact="item.sender_public_code"
         :datetime="item.created_at"
         :title="item.message.title"
         :paragraph="item.message.body"
