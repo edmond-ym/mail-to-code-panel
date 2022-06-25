@@ -204,7 +204,7 @@ defineEmits([
           </div>-->
   
           <div style="width:100%; height: 60px; display: block;"></div>
-          <slot name="content" :tabName="currentTab"  ></slot>
+          <slot name="content"   ></slot>
           
         </div>
     </div>

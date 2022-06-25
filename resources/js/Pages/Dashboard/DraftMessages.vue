@@ -74,7 +74,7 @@ import SearchBar from '../../Component/SearchBar.vue'
                       v-model:tableData="draftMessageList"
                       @background-click="(msg_id)=>{msgIdToView=msg_id;showNewMessageModal=true;}"
                       @delete-click="(event_id)=>{eraseDraft(event_id)}"
-                      superHeader="true"
+                      :superHeader="true"
                     >
                       <template #superHeader>
                         <va-icon name="drafts" /> 

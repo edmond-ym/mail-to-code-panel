@@ -69,7 +69,7 @@ import SearchBar from '../../Component/SearchBar.vue'
                     <SentMessageList
                       v-model:tableData="sentMessages"
                       @view-message="(msgId)=>{msgIdToView=msgId;showSentMessageModal = !showSentViewMessageModal;}" 
-                      superHeader="true"
+                      :superHeader="true"
                     >
                       <template #superHeader>
                         <va-icon name="send" />

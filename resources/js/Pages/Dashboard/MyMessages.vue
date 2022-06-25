@@ -44,10 +44,11 @@ import SearchBar from '../../Component/SearchBar.vue'
                   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                       
                   </div>
-
+                  
                   <SearchBar
                     v-model:searchField="searchKeyword"
                     @search-update="(keyword)=>{Inertia.visit(route('MyMessages',{search_keyword: keyword}))}"
+                    
                   ></SearchBar>
                   <!--<ReceivedMessageTable v-model:tableData="messageList" :extraFields="['']">
                     <template #tableExtraField="tableExtraField" >
@@ -67,7 +68,7 @@ import SearchBar from '../../Component/SearchBar.vue'
                   <ReceivedMessageList
                     v-model:tableData="messageList"
                     @view-message="(msgId)=>{msgIdToView=msgId;showReceivedMessageModal = !showReceivedMessageModal; }"
-                    superHeader="true"
+                    :superHeader="true"
                   >
                     <template #superHeader>
                         <va-icon name="inbox" />

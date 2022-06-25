@@ -73,7 +73,7 @@ import SearchBar from '../../Component/SearchBar.vue'
                     <ReceivedMessageList
                       v-model:tableData="trashedReceivedMessageList"
                       @view-message="(msgId)=>{msgIdToView=msgId;showReceivedMessageModal = !showReceivedMessageModal; }"
-                      superHeader="true"
+                      :superHeader="true"
                     >
                       <template #superHeader>
                         <va-icon name="inbox" />
@@ -91,7 +91,7 @@ import SearchBar from '../../Component/SearchBar.vue'
                     <SentMessageList
                       v-model:tableData="trashedSentMessageList"
                       @view-message="(msgId)=>{msgIdToView=msgId;showSentMessageModal = !showSentViewMessageModal;}" 
-                      superHeader="true"
+                      :superHeader="true"
                     >
                       <template #superHeader>
                         <va-icon name="send" />

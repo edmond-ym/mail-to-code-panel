@@ -7,7 +7,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';*/
 import { mdiCloudCheckOutline } from '@mdi/js';
 defineProps({
     data:{
-        type: String
+        type: [String, Array]
     },
     sortBy:{
         type: String,

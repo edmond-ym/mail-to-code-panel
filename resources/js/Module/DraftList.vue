@@ -48,7 +48,7 @@ defineEmits(['shortPressed', 'longPressed', 'backgroundClick', 'deleteClick']);
                 :datetime="item.created_at"
                 :title="item.message.title"
                 :paragraph="item.message.body"
-                rightBar="true"
+                :rightBar="true"
                 :superHeader="superHeader"
             >
                 <template #superHeader>

@@ -64,7 +64,7 @@ import EmptyListAlert from '../../Component/EmptyListAlert.vue'
                           :mailCode="publicCode+'-'+item.secret_code"
                           :nickname="item.nickname"
                           @background-click="EditPrivateCode.showModal = !EditPrivateCode.showModal;EditPrivateCode.currentNickname=item.nickname;EditPrivateCode.currentPrivateCode=item.secret_code"
-                          backgroundClick="true"
+                          :backgroundClick="true"
 
                         >
                           <template #rightBar>

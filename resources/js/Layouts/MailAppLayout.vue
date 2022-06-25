@@ -10,7 +10,9 @@ import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 
 defineProps({
-    //title: String,
+    publicCode:{
+        type: String
+    }
 });
 
 const mainPageList=['MyMessages','SentMessages','DraftMessages','TrashedMessages','ContactList','PrivateCodeManager'];

@@ -10,7 +10,7 @@ defineProps({
         type: Object
     }*/
     contact:{
-        type: String
+        type: [String, Array]
     },
     datetime:{
         type: String
