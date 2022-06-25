@@ -18,7 +18,7 @@ defineEmits([
 <template>
 
     <form @submit.prevent="submit">
-      <div class="input-group mb-3" style="  z-index: 0; ">
+      <div class="input-group mb-3 searchBar"  style="  z-index: 0; ">
         <input 
           :value="searchField"
           class="searchBarField " 
@@ -26,7 +26,6 @@ defineEmits([
           @input="searchField=$event.target.value"
         >
         <button  
-          
           v-show="searchField != null"
           class="searchBarClose" 
           type="button" 
@@ -45,6 +44,12 @@ defineEmits([
 
 </template>
 <style scope>
+.searchBar{
+  background-color: #f4f8fa;
+}
+.searchBar:focus-within{
+  background-color: white;
+}
 .searchBarField{
   border-radius: 0;
   border-width:1px;
@@ -55,6 +60,7 @@ defineEmits([
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left:10px;
+  background-color: transparent;
 }
 .searchBarField:focus{
   outline: none;
