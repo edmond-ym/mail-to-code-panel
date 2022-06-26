@@ -31,10 +31,10 @@ const submit = () => {
 
 <template>
     <Head title="Log in" />
+    <JetAuthenticationCard  >
 
-    <JetAuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <!--<JetAuthenticationCardLogo />-->
         </template>
 
         <JetValidationErrors class="mb-4" />

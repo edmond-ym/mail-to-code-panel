@@ -32,7 +32,13 @@ const proxyChecked = computed({
         type="checkbox"
         :value="value"
         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        disabled hidden
+        
+    >-->
+    <!--<input
+        v-model="proxyChecked"
+        type="checkbox"
+        :value="value"
+        style="width: 10px;"
     >-->
     <va-checkbox 
         v-model="proxyChecked"

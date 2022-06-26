@@ -6,6 +6,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';*/
 import ContactField from '../../js/Component/ContactField.vue'
 import Button from '../Element/Button.vue'
 import Error from '../Component/Error.vue'
+import Input from '@/Jetstream/Input.vue';
 
 defineProps({
   errorsBagName:{
@@ -27,7 +28,7 @@ defineEmits([
         
         <div class="mb-3">
           <label for="nickname" class="form-label">Nickname</label>
-          <input type="text" class="form-control" id="nickname" v-model="newCodeForm.nickname" >
+          <Input type="text" class="form-control" id="nickname" v-model="newCodeForm.nickname" />
         </div>
         <Button type="submit" @click="newCodeFormSubmit()"> Add </Button>
         <Button @click="this.$emit('closeWindow')" outline>

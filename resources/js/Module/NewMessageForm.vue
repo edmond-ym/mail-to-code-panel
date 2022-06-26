@@ -8,6 +8,8 @@ import SaveStatus from '../Component/SaveStatus.vue'
 import Button from '../Element/Button.vue'
 import Modal from '../Element/Modal.vue'
 import Error from '../Component/Error.vue'
+import Input from '@/Jetstream/Input.vue';
+import TextArea from '@/Jetstream/TextArea.vue';
 
 defineProps({
     publicCode:{ 
@@ -58,9 +60,9 @@ defineEmits([
               
               <div class="input-group input-group-sm mb-3" id="receiver_code_input_group">
                 
-                <input type="text" class="form-control" placeholder="Public Code" aria-label="" v-model="receiver.publicCode" @input="typeCount=typeCount+1" required>
+                <Input type="text" class="form-control" placeholder="Public Code" aria-label="" v-model="receiver.publicCode" @input="typeCount=typeCount+1" required />
                 <span class="input-group-text">-</span>
-                <input type="text" class="form-control" placeholder="Private Code" aria-label="" v-model="receiver.privateCode" @input="typeCount=typeCount+1" required>
+                <Input type="text" class="form-control" placeholder="Private Code" aria-label="" v-model="receiver.privateCode" @input="typeCount=typeCount+1" required />
                 <Button type="button" outline @click="AutoFillModal.show = !AutoFillModal.show; AutoFillModal.contactIndex=index">Fill</Button>
                 <Button type="button" class="mr-4" @click="newMessageForm.receiver_list.splice(index,1);typeCount=typeCount+1;">-</Button>
               </div>
@@ -69,20 +71,22 @@ defineEmits([
             
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">                         
-            <label for="sender_code_input_group" class="form-label">Sender Code</label>
-            <div class="input-group input-group-sm mb-3" id="sender_code_input_group">
-              <input type="text" class="form-control" readonly  v-model="publicCode">
-            </div>
+            <label for="sender_code" class="form-label">Sender Code</label>
+            <Input type="text" class="form-control" id="sender_code" readonly  v-model="publicCode" />
           </div>
         </div>
-       
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" id="title" class="form-control"   v-model="newMessageForm.message.title" @input="typeCount=typeCount+1" required>
-        </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea class="form-control" id="body" rows="3" v-model="newMessageForm.message.body" @input="typeCount=typeCount+1" required></textarea>
+        <div class="row" style="padding-top: 10px;">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <Input type="text" id="title" class="form-control"   v-model="newMessageForm.message.title" @input="typeCount=typeCount+1" required />
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <!--<textarea class="form-control" style="border-color: 0px;" id="body" rows="3" v-model="newMessageForm.message.body" @input="typeCount=typeCount+1" required></textarea>-->
+              <TextArea textarea class="form-control" id="body" rows="10" v-model="newMessageForm.message.body" @input="typeCount=typeCount+1" required></TextArea>
+            </div>
+          </div>
         </div>
         <Button type="submit"  @click="sendMessage()">Submit</Button>
     </form>

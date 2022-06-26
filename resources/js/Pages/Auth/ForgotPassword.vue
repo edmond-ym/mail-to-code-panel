@@ -29,7 +29,7 @@ const submit = () => {
 
     <JetAuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <!--<JetAuthenticationCardLogo />-->
         </template>
 
         <div class="mb-4 text-sm text-gray-600">

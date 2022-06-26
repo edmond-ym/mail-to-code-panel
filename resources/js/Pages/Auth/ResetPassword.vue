@@ -31,7 +31,7 @@ const submit = () => {
 
     <JetAuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <!--<JetAuthenticationCardLogo />-->
         </template>
 
         <JetValidationErrors class="mb-4" />

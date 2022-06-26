@@ -25,16 +25,24 @@ defineExpose({ focus: () => input.value.focus() });
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
     >-->
-    <input
+    <!--<input
         ref="input"
         class="JetStreamInput"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
+    >-->
+    <textarea 
+        class="JetStreamTextArea" 
+        ref="input"
+        v-model="modelValue" 
+        @input="$emit('update:modelValue', $event.target.value)"
     >
+    </textarea>
+
 </template>
 
 <style scope>
-.JetStreamInput{
+.JetStreamTextArea{
   border-radius: 0;
   border-width:1px;
   border-color: darkgray;
@@ -44,7 +52,7 @@ defineExpose({ focus: () => input.value.focus() });
   padding-right:10px;
   background-color: white;
 }
-.JetStreamInput:focus{
+.JetStreamTextArea:focus{
   outline: none;
   border-color: darkgray;
 
