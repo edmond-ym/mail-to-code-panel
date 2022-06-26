@@ -102,7 +102,9 @@ const submit = () => {
             <div class="flex items-center justify-end mt-4">
                 <vue-hcaptcha 
                     :sitekey="CaptchaSiteKey"
-                    @verify="onVerify">
+                    @verify="onVerify"
+                    language="en"
+                >
                 </vue-hcaptcha>
             </div>
             <div class="flex items-center justify-end mt-4">
