@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MailCodeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ContactController;
@@ -28,13 +28,14 @@ use App\Models\DraftMessage;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    /*return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-    ]);
-});
+    ]);*/
+    return view('home', ['loggedIn'=>Auth::check()]);
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',

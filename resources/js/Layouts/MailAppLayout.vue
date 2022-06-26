@@ -8,6 +8,7 @@ import JetDropdown from '@/Jetstream/Dropdown.vue';
 import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
 import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
+import axios from 'axios'
 
 defineProps({
     publicCode:{
@@ -27,7 +28,9 @@ const mainPage= () => {
 };
 
 const logout = () => {
-    Inertia.post(route('logout'));
+  const a=axios.post(route('logout'))
+          .then();
+  window.location.href=route('home');
 };
 </script>
 
@@ -40,7 +43,7 @@ const logout = () => {
       </div>
       <div class="app-bar-right">
         <button class="app-bar-button"  :class="{'app-bar-button-selected':route().current('profile.show')}"  @click="Inertia.visit(route('profile.show'))"  ><va-icon name="person" ></va-icon></button>
-        <button class="app-bar-button"  @click="Inertia.post(route('logout'))" ><va-icon name="logout"></va-icon></button>
+        <button class="app-bar-button"  @click="logout()" ><va-icon name="logout"></va-icon></button>
       </div>
     </div>
 
