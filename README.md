@@ -1,4 +1,4 @@
-# Mail Code Communication Platform
+# Mail Code Communication Platform (Secret Address Mail System)
 
 Welcome to the Mail Code Communication Platform! This project is designed to provide a secure and spam-free alternative to traditional mail systems by using a unique Mail Code system for each user.
 
