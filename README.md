@@ -18,10 +18,13 @@ Welcome to the Mail Code Communication Platform! This project is designed to pro
   
 ## Project Overview
 
-The Mail Code system uses a two-part code to facilitate secure communication:
+The Mail Code system revolutionizes mail communication by enhancing SPAM filtration and bolstering online security through an innovative receiver address system. This system uses a two-part code to ensure secure communication:
 
-- **Public Code (XXXXXXX)**: A unique identifier that you can share freely with others.
-- **Private Code (YYYYYY)**: Acts as a security measure, similar to a door access card. Each Private Code is unique to the sender-receiver pair.
+- **Public Code (XXXXXXX)**: A unique identifier that can be shared freely with others.
+- **Private Code (YYYYYY)**: A security measure similar to a door access card, unique to each sender-receiver pair.
+
+This approach transforms mail communication systems, providing robust protection against unwanted emails and unauthorized access.
+
 
 ## How It Works
 
